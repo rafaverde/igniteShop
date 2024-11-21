@@ -28,6 +28,7 @@ export const Product = styled("a", {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
+    gap: "1rem",
 
     position: "absolute",
     bottom: "0.25rem",
