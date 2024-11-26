@@ -16,7 +16,7 @@ export interface HomeProps {
     id: string
     name: string
     imageUrl: string
-    price: number
+    price: string
   }[]
 }
 
@@ -36,6 +36,7 @@ export default function Home({ products }: HomeProps) {
             key={product.id}
             href={`/product/${product.id}`}
             className="keen-slider__slide"
+            prefetch={false}
           >
             <Image
               src={product.imageUrl}
