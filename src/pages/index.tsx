@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { GetStaticProps } from "next"
-import Link from "next/link"
 
 import { stripe } from "../lib/stripe"
 
