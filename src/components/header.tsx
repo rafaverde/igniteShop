@@ -4,6 +4,7 @@ import Image from "next/image"
 import igniteLogo from "../assets/logo.svg"
 import { HeaderContainer } from "../styles/components/header"
 import { CartButton } from "./cart-button"
+import { CartCheckout } from "./cart-checkout"
 
 export default function Header() {
   return (
@@ -13,6 +14,8 @@ export default function Header() {
       </Link>
 
       <CartButton variant="black" />
+
+      <CartCheckout />
     </HeaderContainer>
   )
 }

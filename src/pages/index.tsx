@@ -10,6 +10,7 @@ import "keen-slider/keen-slider.min.css"
 
 import Stripe from "stripe"
 import Head from "next/head"
+import { CartButton } from "../components/cart-button"
 
 export interface HomeProps {
   products: {
@@ -53,8 +54,13 @@ export default function Home({ products }: HomeProps) {
                 blurDataURL={product.imageUrl}
               />
               <footer>
-                <strong>{product.name}</strong>
-                <span>{product.price}</span>
+                <div>
+                  <strong>{product.name}</strong>
+                  <span>{product.price}</span>
+                </div>
+                <div>
+                  <CartButton variant="green" isCounter={false} />
+                </div>
               </footer>
             </Product>
           )

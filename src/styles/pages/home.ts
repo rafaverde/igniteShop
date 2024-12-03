@@ -56,6 +56,15 @@ export const Product = styled(Link, {
     },
   },
 
+  div: {
+    "&:first-child": {
+      display: "flex",
+      flexDirection: "column",
+      gap: 5,
+      paddingRight: 15,
+    },
+  },
+
   "&:hover": {
     footer: {
       transform: "translateY(0%)",
