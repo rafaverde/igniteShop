@@ -1,22 +1,16 @@
 import { AppProps } from "next/app"
-import Image from "next/image"
-import Link from "next/link"
 
 import { globalStyles } from "../styles/global"
-import { Container, Header } from "../styles/pages/app"
+import { Container } from "../styles/pages/app"
 
-import igniteLogo from "../assets/logo.svg"
+import Header from "../components/header"
 
 globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Container>
-      <Header>
-        <Link href={"/"}>
-          <Image src={igniteLogo} alt="" priority={true} />
-        </Link>
-      </Header>
+      <Header />
       <Component {...pageProps} />
     </Container>
   )
