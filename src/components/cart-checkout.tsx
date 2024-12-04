@@ -13,8 +13,15 @@ import { CartItem } from "./cart-item"
 import { CheckoutButton } from "./checkout-button"
 
 export function CartCheckout() {
-  const { shouldDisplayCart, handleCartClick, cartCount, cartDetails } =
-    useShoppingCart()
+  const {
+    shouldDisplayCart,
+    handleCartClick,
+    cartCount,
+    cartDetails,
+    totalPrice,
+  } = useShoppingCart()
+
+  console.log(cartDetails)
 
   return (
     <CartCheckoutContainer showcart={shouldDisplayCart}>
@@ -44,7 +51,12 @@ export function CartCheckout() {
 
             <div>
               <span>Valor Total</span>
-              <strong>R$ 270,00</strong>
+              <strong>
+                {new Intl.NumberFormat("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(totalPrice)}
+              </strong>
             </div>
           </CartSummary>
 

@@ -24,10 +24,6 @@ export function CartItem({ product }: CartItemProps) {
     removeItem(item)
   }
 
-  const totalProductPrice =
-    parseFloat(String(product.price).replace("R$", "").replace(",", ".")) *
-    product.quantity
-
   return (
     <CartItemContainer>
       <ImageContainer>
@@ -47,7 +43,7 @@ export function CartItem({ product }: CartItemProps) {
           {new Intl.NumberFormat("pt-br", {
             style: "currency",
             currency: "BRL",
-          }).format(totalProductPrice)}
+          }).format(product.price * product.quantity)}
         </strong>
         <button onClick={() => handleRemoveItem(product.id)}>
           <Trash2 size={16} />
