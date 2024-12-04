@@ -24,8 +24,6 @@ export const ImageContainer = styled("div", {
   borderRadius: 8,
 
   img: {
-    width: "auto",
-    height: "auto",
     objectFit: "cover",
   },
 })
