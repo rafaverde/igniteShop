@@ -22,30 +22,36 @@ export function CartCheckout() {
         <X />
       </CloseButton>
 
-      <h3>Sacola de Compras</h3>
+      {cartCount && cartCount > 0 ? (
+        <>
+          <h3>Sacola de Compras</h3>
 
-      <ListItems>
-        <CartItem />
-      </ListItems>
+          <ListItems>
+            {Object.values(cartDetails ?? {}).map((entry) => (
+              <CartItem product={entry} key={entry.id} />
+            ))}
+          </ListItems>
 
-      <CartSummary>
-        <div>
-          <span>Quantidade</span>
-          <span>3 itens</span>
-        </div>
+          <CartSummary>
+            <div>
+              <span>Quantidade</span>
+              <span>3 itens</span>
+            </div>
 
-        <div>
-          <span>Valor Total</span>
-          <strong>R$ 270,00</strong>
-        </div>
-      </CartSummary>
+            <div>
+              <span>Valor Total</span>
+              <strong>R$ 270,00</strong>
+            </div>
+          </CartSummary>
 
-      <CheckoutButton />
-
-      <EmptyCart isempty>
-        <Frown size="6rem" />
-        <span>Seu carrinho está vazio.</span>
-      </EmptyCart>
+          <CheckoutButton />
+        </>
+      ) : (
+        <EmptyCart>
+          <Frown size="6rem" />
+          <span>Seu carrinho está vazio.</span>
+        </EmptyCart>
+      )}
     </CartCheckoutContainer>
   )
 }

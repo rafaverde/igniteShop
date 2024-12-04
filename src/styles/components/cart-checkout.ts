@@ -105,12 +105,4 @@ export const EmptyCart = styled("div", {
   span: {
     marginTop: 20,
   },
-
-  variants: {
-    isempty: {
-      true: {
-        display: "none",
-      },
-    },
-  },
 })
