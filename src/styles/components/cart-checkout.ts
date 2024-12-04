@@ -70,6 +70,10 @@ export const CartSummary = styled("div", {
   gap: 8,
 
   div: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+
     "&:first-child": {
       color: "$gray300",
 

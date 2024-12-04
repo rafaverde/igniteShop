@@ -35,7 +35,11 @@ export function CartCheckout() {
           <CartSummary>
             <div>
               <span>Quantidade</span>
-              <span>3 itens</span>
+              {cartCount <= 1 ? (
+                <span>{cartCount} item</span>
+              ) : (
+                <span>{cartCount} itens</span>
+              )}
             </div>
 
             <div>
