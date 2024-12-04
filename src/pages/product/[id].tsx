@@ -9,8 +9,6 @@ import {
 
 import { stripe } from "../../lib/stripe"
 import Stripe from "stripe"
-import axios from "axios"
-import { useState } from "react"
 import Head from "next/head"
 import { useShoppingCart } from "use-shopping-cart"
 

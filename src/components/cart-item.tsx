@@ -4,16 +4,40 @@ import {
   ImageContainer,
   InfoContainer,
 } from "../styles/components/cart-item"
+import Image from "next/image"
+import { useShoppingCart } from "use-shopping-cart"
 
-export function CartItem() {
+interface CartItemProps {
+  product: {
+    id: string
+    name: string
+    price: number
+    imageUrl?: string
+  }
+}
+
+export function CartItem({ product }: CartItemProps) {
+  const { removeItem } = useShoppingCart()
+
+  function handleRemoveItem(item) {
+    removeItem(item)
+  }
+
   return (
     <CartItemContainer>
-      <ImageContainer></ImageContainer>
+      <ImageContainer>
+        <Image
+          src={product.imageUrl}
+          alt={product.name}
+          width={90}
+          height={90}
+        />
+      </ImageContainer>
 
       <InfoContainer>
-        <p>Camiseta XXX</p>
-        <strong>R$ 79,90</strong>
-        <button>
+        <p>{product.name}</p>
+        <strong>{product.price}</strong>
+        <button onClick={() => handleRemoveItem(product.id)}>
           <Trash2 size={16} />
           Remover
         </button>

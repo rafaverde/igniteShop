@@ -13,7 +13,8 @@ import { CartItem } from "./cart-item"
 import { CheckoutButton } from "./checkout-button"
 
 export function CartCheckout() {
-  const { shouldDisplayCart, handleCartClick } = useShoppingCart()
+  const { shouldDisplayCart, handleCartClick, cartCount, cartDetails } =
+    useShoppingCart()
 
   return (
     <CartCheckoutContainer showcart={shouldDisplayCart}>
@@ -24,8 +25,6 @@ export function CartCheckout() {
       <h3>Sacola de Compras</h3>
 
       <ListItems>
-        <CartItem />
-        <CartItem />
         <CartItem />
       </ListItems>
 
