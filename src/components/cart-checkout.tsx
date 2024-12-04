@@ -1,4 +1,7 @@
+import { useShoppingCart } from "use-shopping-cart"
+
 import { Frown, X } from "lucide-react"
+
 import {
   CartCheckoutContainer,
   CartSummary,
@@ -10,9 +13,11 @@ import { CartItem } from "./cart-item"
 import { CheckoutButton } from "./checkout-button"
 
 export function CartCheckout() {
+  const { shouldDisplayCart, handleCartClick } = useShoppingCart()
+
   return (
-    <CartCheckoutContainer showcart={false}>
-      <CloseButton>
+    <CartCheckoutContainer showcart={shouldDisplayCart}>
+      <CloseButton onClick={() => handleCartClick()}>
         <X />
       </CloseButton>
 

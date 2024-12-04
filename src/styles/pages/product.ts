@@ -9,6 +9,7 @@ export const ProductContainer = styled("main", {
   maxWidth: 1180,
   margin: "0 auto",
 })
+
 export const ImageContainer = styled("div", {
   display: "flex",
   alignItems: "center",
@@ -23,9 +24,12 @@ export const ImageContainer = styled("div", {
   borderRadius: 8,
 
   img: {
+    width: "auto",
+    height: "auto",
     objectFit: "cover",
   },
 })
+
 export const ProductDetails = styled("div", {
   display: "flex",
   flexDirection: "column",

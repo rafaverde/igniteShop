@@ -57,7 +57,7 @@ export default function Product({ product }: ProductProps) {
           <Image
             src={product.imageUrl}
             alt=""
-            priority={true}
+            priority={false}
             width={520}
             height={480}
             placeholder="blur"
