@@ -13,6 +13,7 @@ interface CartItemProps {
     name: string
     price: number
     imageUrl?: string
+    quantity: number
   }
 }
 
@@ -22,6 +23,10 @@ export function CartItem({ product }: CartItemProps) {
   function handleRemoveItem(item) {
     removeItem(item)
   }
+
+  const totalProductPrice =
+    parseFloat(String(product.price).replace("R$", "").replace(",", ".")) *
+    product.quantity
 
   return (
     <CartItemContainer>
@@ -35,8 +40,15 @@ export function CartItem({ product }: CartItemProps) {
       </ImageContainer>
 
       <InfoContainer>
-        <p>{product.name}</p>
-        <strong>{product.price}</strong>
+        <p>
+          {product.quantity}x {product.name}
+        </p>
+        <strong>
+          {new Intl.NumberFormat("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          }).format(totalProductPrice)}
+        </strong>
         <button onClick={() => handleRemoveItem(product.id)}>
           <Trash2 size={16} />
           Remover
