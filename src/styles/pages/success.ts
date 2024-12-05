@@ -34,14 +34,19 @@ export const SuccessContainer = styled("main", {
       color: "$green300",
     },
   },
+
+  //Images Container
+  div: {
+    display: "flex",
+    gap: "1rem",
+  },
 })
 
 export const ImageContainer = styled("div", {
-  width: "100%",
-  maxWidth: 130,
+  width: 145,
   height: 145,
   background: "linear-gradient(180deg, #1ea483 0%, #7465d4 100%)",
-  borderRadius: 8,
+  borderRadius: 999,
   padding: "0.25rem",
   marginTop: "4rem",
 
