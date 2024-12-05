@@ -1,4 +1,4 @@
-import { useShoppingCart } from "use-shopping-cart"
+import { DebugCart, useShoppingCart } from "use-shopping-cart"
 
 import { Frown, X } from "lucide-react"
 
@@ -20,8 +20,6 @@ export function CartCheckout() {
     cartDetails,
     totalPrice,
   } = useShoppingCart()
-
-  console.log(cartDetails)
 
   return (
     <CartCheckoutContainer showcart={shouldDisplayCart}>

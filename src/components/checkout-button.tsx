@@ -1,26 +1,29 @@
-import { Check } from "lucide-react"
-import { CheckoutButtonContainer } from "../styles/components/checkout-button"
 import { useShoppingCart } from "use-shopping-cart"
+import axios from "axios"
 import { useState } from "react"
 
+import { Check } from "lucide-react"
+import { CheckoutButtonContainer } from "../styles/components/checkout-button"
+
 export function CheckoutButton() {
-  const { redirectToCheckout } = useShoppingCart()
+  const { redirectToCheckout, cartDetails } = useShoppingCart()
   const [isLoading, setIsLoading] = useState(false)
 
-  async function handleCheckout(event) {
-    event.preventDefault()
+  async function handleCheckout() {
     setIsLoading(true)
+    const checkoutItems = Object.values(cartDetails).map((item) => ({
+      priceId: item.defaultPriceId,
+      quantity: item.quantity,
+    }))
 
     try {
-      const result = await redirectToCheckout()
+      const response = await axios.post("/api/checkout", { checkoutItems })
 
-      if (result?.error) {
-        alert("Algo deu errado. Por favor tente mais tarde.")
-        console.error(result)
-        setIsLoading(false)
-      }
+      const { checkoutUrl } = response.data
+
+      window.location.href = checkoutUrl
     } catch (error) {
-      alert("Algo deu errado. Por favor tente mais tarde.")
+      alert("Erro ao redirecionar para o checkout.")
       console.error(error)
       setIsLoading(false)
     }
