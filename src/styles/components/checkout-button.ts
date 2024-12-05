@@ -21,7 +21,12 @@ export const CheckoutButtonContainer = styled("button", {
 
   transition: "all 200ms",
 
-  "&:hover": {
+  "&:disable": {
+    opacity: 0.5,
+    cursor: "not-allowed",
+  },
+
+  "&:not(:disabled):hover": {
     backgroundColor: "$green300",
   },
 })
